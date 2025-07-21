@@ -1,5 +1,5 @@
 import { Inngest } from "inngest";
-import User from '../models/user.js';
+import User1 from '../models/user.js';
 
 export const inngest = new Inngest({ id: "movie-ticket-booking" });
 
@@ -15,7 +15,7 @@ const syncUserCreation = inngest.createFunction(
       name: first_name + ' ' + last_name,
       image: image_url
     };
-    await User.create(userData);
+    await User1.create(userData);
   }
 );
 
@@ -25,7 +25,7 @@ const syncUserDeletion = inngest.createFunction(
   { event: 'clerk/user.deleted' },
   async ({ event }) => {
     const { id } = event.data;
-    await User.findByIdAndDelete(id);
+    await User1.findByIdAndDelete(id);
   }
 );
 
@@ -41,7 +41,7 @@ const syncUserUpdation = inngest.createFunction(
       name: first_name + ' ' + last_name,
       image: image_url
     };
-    await User.findByIdAndUpdate(id, userData);
+    await User1.findByIdAndUpdate(id, userData);
   }
 );
 
