@@ -29,7 +29,7 @@ const TrailerSection = () => {
       </div>
 
       {/* Thumbnail List */}
-      <div className="flex gap-4 overflow-x-auto px-100">
+      <div className="flex gap-4 overflow-x-auto flex justify-center">
         {dummyTrailers.map((trailer, index) => (
           <div
             key={index}
